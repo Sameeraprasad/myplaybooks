@@ -1,0 +1,14 @@
+---
+- name: install tree
+  hosts: all
+  become: true
+  tasks:
+  - name: install tree
+    yum:
+      name: tree
+      state: present  
+
+  - name: Start service tree
+    service:
+     name: tree
+     state: started

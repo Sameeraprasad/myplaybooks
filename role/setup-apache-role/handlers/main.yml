@@ -1,0 +1,6 @@
+---
+# handlers file for setup-apache-role
+- name: start service httpd
+  service:
+    name: httpd
+    state: started  

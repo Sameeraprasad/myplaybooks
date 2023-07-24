@@ -1,0 +1,11 @@
+---
+- name: create directory
+  hosts: all
+  #become: yes
+  tasks:
+  - name: create directory
+    file:
+      path: /home/ansadmin/dira
+      state: absent
+
+

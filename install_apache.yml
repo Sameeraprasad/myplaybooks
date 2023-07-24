@@ -1,0 +1,33 @@
+---
+- name: using handler section
+  hosts: all
+  become: yes
+  tasks:
+  - name: install httpd package
+    yum:
+      name: httpd
+      state: present
+    when: ansible_os_family == "redhat"
+
+  - name: service httpd start    
+    service:
+      name: httpd
+      state: started
+    when: ansible_os_family == "redhat"    
+
+  - name: install apache2 package
+    apt:
+      name: apache2
+      state: present
+    when: ansible_os_family == "debian"
+
+  - name: service apache2 start
+    service:
+      name: apache2
+      state: started
+    when: ansible_os_family == "debian"    
+      
+     
+
+        
+  

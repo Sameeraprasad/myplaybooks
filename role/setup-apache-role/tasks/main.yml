@@ -1,0 +1,14 @@
+---
+# tasks file for setup-apache-role
+- name: install httpd package
+  yum:
+    name: httpd
+    state: present
+  when: ansible_os_family == "RedHat"
+  notify: start service httpd
+
+- name: copy index.html
+  copy:
+   src: /home/ansadmin/index.html
+   dest: /var/www/html
+

@@ -1,0 +1,10 @@
+---
+- name: install packages
+  hosts: all
+  become: yes
+  tasks:
+    - name: install many packages
+      yum:
+        name: ['git', 'make', 'wget', 'mysql', 'tree', 'which']
+        state: present 
+          
